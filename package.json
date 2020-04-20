@@ -1,0 +1,19 @@
+{
+  "name": "super-league",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudemuller/super-league.git"
+  },
+  "author": "Claude Müller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/claudemuller/super-league/issues"
+  },
+  "homepage": "https://github.com/claudemuller/super-league#readme"
+}
