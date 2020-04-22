@@ -1,0 +1,11 @@
+Lions 1, Snakes 3
+Tarantulas 1, FC Awesome 0
+Lions 1, FC Awesome 2
+Snakes 1, Lions 2
+Snails 1, Big Dogs 2
+Lions 1, Snakes 3
+Lions 1, FC Awesome 2
+Snakes 1, Lions 2
+Snails 1, Lions 2
+Cats 1, FC Awesome 0
+Lions 1, Big Dogs 2

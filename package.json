@@ -2,7 +2,7 @@
   "name": "super-league",
   "version": "1.0.0",
   "description": "A soccer league ranking command-line program written in JavaScript",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
     "test": "jest"
