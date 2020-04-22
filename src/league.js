@@ -21,8 +21,8 @@ function League() {
       .map(d => {
         const splitIndex = d.lastIndexOf(' '),
           score = d.substring(splitIndex + 1),
-          teamName = d.substring(0, splitIndex).trim();
-          existingTeam = _teams.find(teamName);
+          teamName = d.substring(0, splitIndex).trim(),
+          existingTeam = _teams.find(teamName),
           team = existingTeam ? existingTeam : Team(teamName);
 
         return {

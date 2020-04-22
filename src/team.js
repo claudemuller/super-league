@@ -55,11 +55,25 @@ function Team(n) {
     }
   }
 
+  /**
+   * The equal function to match two teams
+   *
+   * @param string value - The string i.e. team name to match
+   *
+   * @return bool - Whether or not it is equal
+   */
+  function equal(value) {
+    const result = _name === value;
+
+    return result;
+  }
+
   return {
     getName,
     getPoints,
     recordOutcome,
-    compareTo
+    compareTo,
+    equal
   };
 }
 

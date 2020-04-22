@@ -1,14 +1,14 @@
 const Game = require('../src/game');
 
-describe('Game object', function () {
-  it('should not return undefined', function () {
-    // Arrange
-    //const expected = undefined;
+describe('Game module', () => {
+  it('should not return undefined', () => {
+     Arrange
+    const expected = undefined;
 
-    //// Act
-    //const actual = Game();
+    // Act
+    const actual = Game();
 
-    //// Assert
-    //expect(actual).not.toBe(expected);
+    // Assert
+    expect(actual).not.toBe(expected);
   });
 });

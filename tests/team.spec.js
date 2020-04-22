@@ -1,7 +1,7 @@
 const Team = require('../src/team');
 const Outcome = require('../src/enums/outcome');
 
-describe('Team object', () => {
+describe('Team module', () => {
   it('should not return undefined', () => {
     // Arrange
     const expected = undefined;
@@ -74,7 +74,24 @@ describe('Team object', () => {
     expect(actual).toBe(expected);
   });
 
-  it('should return 1 when "Test" team is higher in rank than "Another test"', () => {
+  it('should return -1 when "Test" team is higher in rank than "Another test"', () => {
+    // Arrange
+    const expected = -1,
+      team = Team('Test'),
+      anotherTeam = Team('Another test');
+
+    // Act
+    team.recordOutcome(Outcome.Win);
+    team.recordOutcome(Outcome.Win);
+    anotherTeam.recordOutcome(Outcome.Win);
+
+    const actual = team.compareTo(anotherTeam);
+
+    // Assert
+    expect(actual).toBe(expected);
+  });
+
+  it('should return 1 when "Test" team is lower in rank than "Another test"', () => {
     // Arrange
     const expected = 1,
       team = Team('Test'),
@@ -82,23 +99,6 @@ describe('Team object', () => {
 
     // Act
     team.recordOutcome(Outcome.Win);
-    team.recordOutcome(Outcome.Win);
-    anotherTeam.recordOutcome(Outcome.Win);
-
-    const actual = team.compareTo(anotherTeam);
-
-    // Assert
-    expect(actual).toBe(expected);
-  });
-
-  it('should return -1 when "Test" team is lower in rank than "Another test"', () => {
-    // Arrange
-    const expected = -1,
-      team = Team('Test'),
-      anotherTeam = Team('Another test');
-
-    // Act
-    team.recordOutcome(Outcome.Win);
     anotherTeam.recordOutcome(Outcome.Win);
     anotherTeam.recordOutcome(Outcome.Win);
 
@@ -108,9 +108,9 @@ describe('Team object', () => {
     expect(actual).toBe(expected);
   });
 
-  it('should return -1 when "Test" team is the same in rank than "Another test" but further in the alphabet', () => {
+  it('should return 1 when "Test" team is the same in rank than "Another test" but further in the alphabet', () => {
     // Arrange
-    const expected = -1,
+    const expected = 1,
       team = Team('Test'),
       anotherTeam = Team('Another test');
 

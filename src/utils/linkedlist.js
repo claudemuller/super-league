@@ -1,7 +1,7 @@
 /**
  * The nodes of the linked list
  *
- * @param Team i - The item (Team) to add to the node
+ * @param object i - The object node to add to the node
  */
 function Node(i) {
   let item = i,
@@ -49,18 +49,18 @@ function LinkedList() {
   }
 
   /**
-   * Find the node by name
+   * Find the node
    *
    * @param string name - The string value of the node to find
    *
    * @returns bool|Team - The found team or false if not found
    */
-  function find(name) {
+  function find(value) {
     let runner = null,
       previous = null;
 
     if (_head !== null) {
-      if (_head.item.getName() === name) {
+      if (_head.item.equal(value)) {
         return _head.item;
       }
 
@@ -68,7 +68,7 @@ function LinkedList() {
       previous = _head;
 
       while (runner !== null) {
-        if (runner.item.getName() === name) {
+        if (runner.item.equal(value)) {
           return runner.item;
         }
 
@@ -81,18 +81,18 @@ function LinkedList() {
   }
 
   /**
-   * Remove the node by name
+   * Remove the node
    *
    * @param string name - The string value of the node to find and remove
    *
-   * @return bool|Team - The found team or false if not found
+   * @return bool|Node - The found node or false if not found
    */
-  function remove(name) {
+  function remove(value) {
     let runner = null,
       previous = null;
 
     if (_head !== null) {
-      if (_head.item.getName() === name) {
+      if (_head.item.equal(value)) {
         const removed = _head;
 
         _head = null;
@@ -104,7 +104,7 @@ function LinkedList() {
       previous = _head;
 
       while (runner !== null) {
-        if (runner.item.getName() === name) {
+        if (runner.item.equal(value)) {
           const removed = runner;
 
           previous.next = runner.next;
@@ -138,6 +138,6 @@ function LinkedList() {
     find,
     enumerate
   };
-};
+}
 
 module.exports = LinkedList;
