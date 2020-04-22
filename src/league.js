@@ -2,26 +2,43 @@ const Game = require('./game');
 const Team = require('./team');
 const LinkedList = require ('./utils/linkedlist');
 
+/**
+ * The league that orchestrates the league's games
+ */
 function League() {
   let _teams = LinkedList(),
     _games = [];
 
-  function recordGame(gameData) {
-    const data = gameData.split(',')
+  /**
+   * Record the game and add the teams to the league
+   *
+   * @param string data - The input string that describes the team names and their scores
+   */
+  function recordGame(data) {
+    const gameData = data
+      .trim()
+      .split(',')
       .map(d => {
-        const [teamName, score] = d.trim().split(' '),
-          team = _addTeam(teamName);
+        const splitIndex = d.lastIndexOf(' '),
+          score = d.substring(splitIndex + 1),
+          teamName = d.substring(0, splitIndex).trim();
+          existingTeam = _teams.find(teamName);
+          team = existingTeam ? existingTeam : Team(teamName);
 
         return {
           team,
           score
         };
       }),
-      game = Game(data);
+      game = Game(gameData);
 
+    gameData.forEach(d => _addTeam(d.team));
     _games.push(game);
   }
 
+  /**
+   * Print the points ranking table
+   */
   function printRankingTable() {
     let i = 1;
 
@@ -35,19 +52,8 @@ function League() {
     }
   }
 
-  function _addTeam(teamName) {
-    let team = Team(teamName),
-      existingTeam = _teams.find(team);
-
-    //console.log(teamName, existingTeam);
-
-    if (existingTeam) {
-      return existingTeam;
-    }
-
-    _teams.insert(team);
-
-    return team;
+  function _addTeam(team) {
+    _teams.insert(team)
   }
 
   return {
