@@ -2,7 +2,7 @@ const Game = require('../src/game');
 const Team = require('../src/team');
 
 describe('Game module', () => {
-  it('should return undefined', () => {
+  it('should not return undefined', () => {
     // Arrange
     const expected = undefined,
       data =[
@@ -14,6 +14,6 @@ describe('Game module', () => {
     const actual = Game(data);
 
     // Assert
-    expect(actual).toBe(expected);
+    expect(actual).not.toBe(expected);
   });
 });
